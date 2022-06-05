@@ -1,9 +1,9 @@
-t = int(input("Number of tests?\n"))
+t = int(input())
 
 for _ in range(t):
     count = 1
-    n_char = int(input("Number of characters in string?\n"))
-    string = input("String?\n")
+    n_char = int(input())
+    string = input()
 
     mid = len(string) // 2
 
