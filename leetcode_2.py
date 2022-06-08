@@ -29,3 +29,15 @@ class Solution:
             head = node
 
         return head
+
+    def add_two_numbers_2(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        def to_int(node):
+            return node.val + 10 * to_int(node.next) if node else 0
+
+        def to_list(n):
+            node = ListNode(n % 10)
+            if n > 9:
+                node.next = to_list(n // 10)
+            return node
+
+        return to_list(to_int(l1) + to_int(l2))
