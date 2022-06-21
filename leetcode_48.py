@@ -17,5 +17,6 @@ class Solution:
                 matrix[top + i][right] = top_left
             left += 1
             right -= 1
-        for row in matrix:
-            print(*row)
+
+    def rotate_2(self, matrix: List[List[int]]) -> None:
+        matrix[:] = list(zip(*matrix[::-1]))
