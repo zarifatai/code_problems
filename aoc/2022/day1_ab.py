@@ -1,23 +1,7 @@
-from collections import Counter
-
 with open("inputs/day1.txt") as f:
-    lines = f.readlines()
+    input = f.read().strip().split("\n\n")
 
-maximum = 0
-total_sum = 0
-calories = {}
-elf_idx = 0
+cals = sorted([sum(map(int, elf.split("\n"))) for elf in input])
 
-for line in lines:
-    line = line.replace("\n", "")
-    if line == "":
-        calories[elf_idx] = total_sum
-        elf_idx += 1
-        total_sum = 0
-    else:
-        total_sum += int(line)
-
-counter = Counter(calories)
-top_3 = counter.most_common(3)
-
-print(sum([x[1] for x in top_3]))
+print(cals[-1])
+print(sum(cals[-3:]))
